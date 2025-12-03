@@ -23,7 +23,7 @@ game_init PROC
     mov [esi + 0], eax
     mov [esi + 4], ebx
     ; -----------------------------------------------------------------------
-    mov dword ptr [esi + 8], 100  ; Puntuacion
+    mov dword ptr [esi + 8], 0 ; Puntuacion
     ; -----------------------------------------------------------------------
     mov dword ptr [esi + 12], 0
     
@@ -35,7 +35,7 @@ game_init PROC
     mov dword ptr [esi + 24], 2
     mov dword ptr [esi + 28], 2
     ; -----------------------------------------------------------------------
-    mov dword ptr [esi + 32], 0 ; Longitud_Inicial
+    mov dword ptr [esi + 32], 3 ; Longitud_Inicial
     ; -----------------------------------------------------------------------
     mov dword ptr [esi + 36], DIRECTION_RIGHT
     mov dword ptr [esi + 40], DIRECTION_RIGHT
@@ -113,16 +113,16 @@ tick_check_bounds:
     mov ebx, [esi + 20]
     
     cmp eax, 0
-    jl tick_game_over
+    jl tick_game_over ;
     mov ecx, [esi + 0]
     cmp eax, ecx
-    jge tick_game_over
+    jge tick_game_over;
     
     cmp ebx, 0
-    jl tick_game_over
+    jl tick_game_over;
     mov ecx, [esi + 4]
     cmp ebx, ecx
-    jge tick_game_over
+    jge tick_game_over;
     
     xor edi, edi
     mov eax, [esi + 16]
